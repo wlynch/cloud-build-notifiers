@@ -2,7 +2,9 @@
 | ----------------- | - |
 | Status  | **{{.GetStatus}} {{ emoji .GetStatus }}** |
 | Trigger | [{{.BuildTriggerId}}](https://console.cloud.google.com/cloud-build/triggers/{{.BuildTriggerId}})
+{{- if .Results.GetImages }}
 | Image   | {{ range .Results.GetImages }}{{.Name}} {{end}} |
+{{end -}}
 | Start   | {{ unix .StartTime }} |
 | Duration | {{ duration .StartTime .FinishTime }} |
 
